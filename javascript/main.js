@@ -166,6 +166,37 @@ if (savedTheme === 'light') {
   document.documentElement.setAttribute('data-theme', 'dark');
 }
 
+// ========================
+// PRIVATE REPO BTN — fix visibility per tema
+// ========================
+function updatePrivateRepoBtns() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  document.querySelectorAll('.private-repo-btn').forEach((btn) => {
+    if (isLight) {
+      btn.style.backgroundColor = 'rgba(0, 0, 0, 0.04)';
+      btn.style.border = '1px solid #cbd5e0';
+      btn.style.color = '#718096';
+    } else {
+      btn.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
+      btn.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+      btn.style.color = 'rgba(255, 255, 255, 0.6)';
+    }
+
+    // Perbaiki onmouseleave supaya restore warna yang benar per tema
+    btn.onmouseleave = function () {
+      if (document.documentElement.getAttribute('data-theme') === 'light') {
+        this.style.borderColor = '#cbd5e0';
+        this.style.backgroundColor = 'rgba(0, 0, 0, 0.04)';
+        this.style.color = '#718096';
+      } else {
+        this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        this.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
+        this.style.color = 'rgba(255, 255, 255, 0.6)';
+      }
+    };
+  });
+}
+
 // Fungsi toggle theme
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -177,6 +208,8 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
   }
+
+  updatePrivateRepoBtns();
 }
 
 // Event listener untuk tombol toggle
@@ -228,6 +261,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 // ========================
 document.addEventListener('DOMContentLoaded', () => {
   initSliders();
+  updatePrivateRepoBtns();
   
   // Re-run reveal observer untuk elemen yang mungkin sudah terlihat
   revealElements.forEach((el) => {
