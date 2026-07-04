@@ -156,14 +156,11 @@ const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-// Set theme awal
-if (savedTheme === 'light') {
+// Set theme awal — default light
+if (savedTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+} else {
   document.documentElement.setAttribute('data-theme', 'light');
-} else if (savedTheme === 'dark') {
-  document.documentElement.setAttribute('data-theme', 'dark');
-} else if (!savedTheme && !prefersDark) {
-  // Jika tidak ada preferensi dan sistem menggunakan light mode
-  document.documentElement.setAttribute('data-theme', 'dark');
 }
 
 // ========================
