@@ -70,8 +70,8 @@ portfolio farhan/
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/farhanadrianto/portfolio.git
-   cd portfolio
+   git clone https://github.com/farhanadrianto/farhanba-portofolio.git
+   cd farhanba-portofolio
    ```
 
 2. **Masuk ke Folder Project**
