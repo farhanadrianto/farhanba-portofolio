@@ -259,6 +259,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 document.addEventListener('DOMContentLoaded', () => {
   initSliders();
   updatePrivateRepoBtns();
+  initProjectFilter(); // Initialize project filter
   
   // Re-run reveal observer untuk elemen yang mungkin sudah terlihat
   revealElements.forEach((el) => {
@@ -282,4 +283,136 @@ function isTouchDevice() {
 // Sembunyikan cursor glow di device touch
 if (isTouchDevice() && cursorGlow) {
   cursorGlow.style.display = 'none';
+}
+
+// ========================
+// PROJECT FILTER FUNCTIONALITY
+// ========================
+function initProjectFilter() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  // Set default: show only web projects
+  filterProjects('web');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Get filter category
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter projects
+      filterProjects(filterValue);
+    });
+  });
+
+  function filterProjects(category) {
+    projectCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      
+      if (cardCategory === category) {
+        // Show card with animation
+        card.classList.remove('hidden');
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        // Hide card
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          card.classList.add('hidden');
+        }, 300);
+      }
+    });
+  }
+}
+
+// ========================
+// PREVENT CURSOR GLOW ON MOBILE
+// ========================
+// Cek apakah device adalah mobile/touch device
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
+
+// Sembunyikan cursor glow di device touch
+if (isTouchDevice() && cursorGlow) {
+  cursorGlow.style.display = 'none';
+}
+
+// ========================
+// INITIALIZE ALL ON PAGE LOAD
+// ========================
+document.addEventListener('DOMContentLoaded', () => {
+  initSliders();
+  updatePrivateRepoBtns();
+  initProjectFilter(); // Initialize project filter
+  initCertFilter(); // Initialize certificate filter
+  
+  // Re-run reveal observer untuk elemen yang mungkin sudah terlihat
+  revealElements.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+});
+
+
+// ========================
+// CERTIFICATE FILTER FUNCTIONALITY
+// ========================
+function initCertFilter() {
+  const filterButtons = document.querySelectorAll('.cert-filter-btn');
+  const certCards = document.querySelectorAll('.cert-card');
+
+  // Set default: show only credentials
+  filterCerts('credentials');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Get filter category
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter certificates
+      filterCerts(filterValue);
+    });
+  });
+
+  function filterCerts(category) {
+    certCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      
+      if (cardCategory === category) {
+        // Show card with animation
+        card.classList.remove('hidden');
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        // Hide card
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          card.classList.add('hidden');
+        }, 300);
+      }
+    });
+  }
 }

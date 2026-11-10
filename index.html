@@ -29,8 +29,20 @@
 
   <!-- Theme Toggle Button -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span class="theme-icon-light">☀️</span>
-    <span class="theme-icon-dark">🌙</span>
+    <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+      <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/>
+    </svg>
   </button>
 </nav>
 
@@ -40,7 +52,7 @@
   <div class="hero-glow2"></div>
 
   <div class="hero-content">
-    <div class="hero-tag">4th-Semester Student · Information Systems</div>
+    <div class="hero-tag">5th-Semester Student · Information Systems</div>
     <h1>
       <span class="line">Turning Data</span>
       <span class="line"><span class="highlight">Into Insight</span></span>
@@ -82,17 +94,17 @@
         <h2>Passionate about<br>tech & data.</h2>
       </div>
 <p>
-  Hello! I'm <strong>Farhan Bintang Adrianto</strong>, a 4th-semester 
-  <strong>Information Systems student at UPN "Veteran" East Java</strong> 
-  with a GPA of <strong>3.682/4.00</strong>. I have over 1 year of experience 
-  in <strong>Software Development</strong>, specializing in designing and developing 
+  Hello! I'm Farhan Bintang Adrianto, a 5th-semester 
+  Information Systems student at UPN "Veteran" East Java 
+  with a GPA of 3.682/4.00. I have over 1 year of experience 
+  in Software Development, specializing in designing and developing 
   web, mobile, and desktop applications.
 </p>
 
 <p>
-  I am proficient in utilizing technologies such as <strong>Laravel, Kotlin, Java, Node.js, MySQL, and Firebase</strong> 
+  I am proficient in utilizing technologies such as Laravel, Kotlin, Java, Node.js, MySQL, and Firebase 
   to transform real-world problems into meaningful digital solutions. In addition to focusing on backend development and application performance, 
-  I also have practical experience in <strong>UI/UX Design</strong> and have actively participated in national-level competitions.
+  I also have practical experience in UI/UX Design and have actively participated in national-level competitions.
 </p>
 
 <p>
@@ -100,12 +112,12 @@
   through professional certifications, hands-on projects, and continuous learning in software development, system design, and emerging technologies.
 </p>
       <div class="about-tags">
-        <span class="tag">Software Engineer</span>
         <span class="tag">Full Stack Developer</span>
         <span class="tag">Mobile Developer</span>
         <span class="tag">UI/UX Designer</span>
         <span class="tag">Problem Solver</span>
-        <span class="tag">Analytical Thinking</span>
+        <span class="tag">System Analyst</span>
+        <span class="tag">Fast Learner</span>
       </div>
     </div>
   </div>
@@ -216,9 +228,16 @@
     <h2>Featured Projects</h2>
   </div>
 
+  <!-- Project Filter Buttons -->
+  <div class="project-filter-buttons reveal">
+    <button class="filter-btn active" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="mobile">Mobile</button>
+    <button class="filter-btn" data-filter="desktop">Desktop</button>
+  </div>
+
 <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
 
-    <div class="project-card reveal reveal-delay-2" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-2" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/velodrive.png" alt="VeloDrive" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -227,8 +246,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">CAR RENTAL WEB APPLICATION</div>
           <h3>VeloDrive — Car Rental Management System</h3>
-          <p>VeloDrive is a web-based Car Rental Management System built with Laravel and MySQL, allowing customers to browse and book vehicles while administrators manage car inventory, bookings, payment verification, transaction status updates, analytics dashboards, customer data, and comprehensive reporting in one integrated platform.
-</p>
+          <p>Full-featured car rental platform with customer booking, admin dashboard for inventory management, payment verification, and comprehensive analytics. Built with Laravel and MySQL.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -251,7 +269,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-1" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-1" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/simakcerah.png" alt="SIMAK" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -260,8 +278,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">Academic Web Management</div>
           <h3>SIMAK — Academic Management System</h3>
-          <p>SIMAK is a web-based Academic Information System built with Laravel and MySQL, featuring multi-role access for Admins, Lecturers, and Students. The system supports KRS management, academic scheduling, lecturer approvals, announcements, semester packages, and interactive dashboards with Chart.js for academic analytics.
-</p>
+          <p>Academic information system with multi-role access (Admin, Lecturer, Student) for KRS management, scheduling, approvals, and real-time analytics dashboards. Powered by Laravel and Chart.js.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -283,7 +300,7 @@
       </div>
     </div>
 
-<div class="project-card reveal reveal-delay-1" style="display: flex; flex-direction: column; height: 100%;">
+<div class="project-card reveal reveal-delay-1" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
   <div class="project-img">
     <img src="img/projects/hanzmoni.png" alt="Hanzmoni" class="project-thumb-img" />
     <div class="project-overlay"></div>
@@ -294,7 +311,7 @@
       <div class="project-type">Frontend Web Application</div>
       <h3>Hanzmoni — Music Player</h3>
       <p>
-        Hanzmoni is a responsive offline music player built with HTML5, CSS3, and JavaScript. It features real-time search, queue pagination, HTML5 audio playback controls, animated equalizer, playback speed adjustment, shuffle, loop, volume control, localStorage persistence, and a modern glassmorphism interface optimized for desktop and mobile.
+        Responsive offline music player with real-time search, queue management, animated equalizer, and playback controls. Features modern glassmorphism UI with localStorage persistence.
       </p>
     </div>
 
@@ -324,7 +341,7 @@
   </div>
 </div>
 
-    <div class="project-card reveal reveal-delay-2" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-2" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/helpdesk.png" alt="Helpdesk+" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -333,8 +350,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">IT SUPPORT WEB APPLICATION</div>
           <h3>Helpdesk+ — IT Helpdesk Ticketing System</h3>
-          <p>Helpdesk+ is a web-based IT Helpdesk Management System built with Laravel and MySQL, allowing employees to submit and monitor support tickets while administrators manage ticket workflows, status updates, archives, analytics dashboards, file attachments, notifications, and user profiles in one integrated platform.
-</p>
+          <p>IT support ticketing system for employees to submit and track requests. Admins manage workflows, status updates, analytics dashboards, and notifications with file attachment support.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -357,7 +373,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-4" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-4" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/iphone-store.png" alt="iPhone Store" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -388,7 +404,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-2" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-2" data-category="web" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/astralearn.png" alt="AstraLearn" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -397,8 +413,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">COURSE MANAGEMENT PLATFORM</div>
           <h3>AstraLearn — Learning Management System</h3>
-          <p>AstraLearn is a web-based Learning Management System developed with Laravel, MySQL, Tailwind CSS, and Vite, enabling students to enroll in courses, access learning materials, submit assignments, and track progress, while allowing instructors to create and manage courses, publish materials, grade submissions, and organize class schedules.
-</p>
+          <p>Learning management platform where students enroll in courses, submit assignments, and track progress. Instructors create courses, publish materials, grade submissions, and manage schedules.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -421,7 +436,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-2" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-2" data-category="mobile" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/studymate.png" alt="StudyMate" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -430,8 +445,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">Mobile Application</div>
           <h3>StudyMate — Academic Task Reminder</h3>
-          <p>Developed an Android task management application featuring 5+ core functionalities, including authentication, task management, deadline tracking, reminders, and real-time synchronization.
-</p>
+          <p>Android task management app with authentication, deadline tracking, push reminders, and real-time Firebase synchronization for academic assignments.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -454,7 +468,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-5" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-5" data-category="desktop" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/pos-system.jpeg" alt="POS Application" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -463,7 +477,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">Desktop Application</div>
           <h3>Food Store Point of Sale (POS) Application</h3>
-          <p>Developed a Point of Sale (POS) application for food sales management, including menu selection, transaction processing, and automated invoice/report generation using Crystal Reports.</p>
+          <p>Desktop POS system for food sales with menu selection, transaction processing, and automated invoice generation using Crystal Reports.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -485,7 +499,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-6" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-6" data-category="desktop" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/coffe-shop.png" alt="Coffee Shop Desktop" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -494,7 +508,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">Desktop Application</div>
           <h3>Coffee Shop Management Application</h3>
-          <p>Developed a desktop application for managing customer records, product catalogs, and transactions with an automated 3-tier membership loyalty system (Bronze, Silver, Gold).</p>
+          <p>Desktop application managing customers, products, and transactions with automated 3-tier loyalty system (Bronze, Silver, Gold).</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -516,7 +530,7 @@
       </div>
     </div>
 
-    <div class="project-card reveal reveal-delay-8" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="project-card reveal reveal-delay-8" data-category="mobile" style="display: flex; flex-direction: column; height: 100%;">
       <div class="project-img">
         <img src="img/projects/ecomanage4.png" alt="EcoManage" class="project-thumb-img" />
         <div class="project-overlay"></div>
@@ -525,7 +539,7 @@
         <div style="flex-grow: 1;">
           <div class="project-type">Mobile Application (UX Competition)</div>
           <h3>EcoManage — Smart Waste Management</h3>
-          <p>Contributed to the design of a Smart Waste Management application recognized as a Top 23 National Finalist. Developed wireframes, information architecture, user flows, and high-fidelity prototypes in Figma.</p>
+          <p>Top 23 National Finalist. Designed complete UX flows including wireframes, information architecture, user flows, and high-fidelity prototypes in Figma.</p>
         </div>
         
         <div style="margin-top: auto; width: 100%;">
@@ -556,8 +570,14 @@
     <h2>Certifications & Awards</h2>
   </div>
 
+  <!-- Certificate Filter Buttons -->
+  <div class="cert-filter-buttons reveal">
+    <button class="cert-filter-btn active" data-filter="credentials">Credentials</button>
+    <button class="cert-filter-btn" data-filter="competitions">Competitions</button>
+  </div>
+
   <div class="certs-grid">
-    <div class="cert-card reveal reveal-delay-1">
+    <div class="cert-card reveal reveal-delay-1" data-category="competitions">
       <div class="cert-img cert3">
         <div class="cert-slider">
           <div class="cert-slides" data-current="0">
@@ -576,12 +596,12 @@
       <div class="cert-body">
         <div class="cert-issuer">ITASE 6.0 Dies Natalis Sistem Informasi 2025</div>
         <h3>National Ranking 23 – UX Design Competition</h3>
-        <p>Ranked 23rd nationally with EcoManage, an innovative waste management application. Contributed to wireframe design, information architecture development, and the implementation of Design Thinking methodologies to create a user-centered and sustainable digital solution.</p>
+        <p>Ranked 23rd nationally with EcoManage waste management app. Led wireframe design, information architecture, and Design Thinking implementation for user-centered solutions.</p>
         <div class="cert-date">📅 2025 · Telkom University Purwokerto</div>
       </div>
     </div>
 
-    <div class="cert-card reveal reveal-delay-2">
+    <div class="cert-card reveal reveal-delay-2" data-category="credentials">
       <div class="cert-img cert3">
         <div class="cert-slider">
           <div class="cert-slides" data-current="0">
@@ -605,7 +625,7 @@
       </div>
     </div>
 
-    <div class="cert-card reveal reveal-delay-3">
+    <div class="cert-card reveal reveal-delay-3" data-category="credentials">
       <div class="cert-img cert3">
         <div class="cert-slider">
           <div class="cert-slides" data-current="0">
@@ -631,7 +651,7 @@
       </div>
     </div>
 
-    <div class="cert-card reveal reveal-delay-4">
+    <div class="cert-card reveal reveal-delay-4" data-category="competitions">
       <div class="cert-img cert3">
         <div class="cert-slider">
           <div class="cert-slides" data-current="0">
@@ -651,7 +671,7 @@
       <div class="cert-body">
         <div class="cert-issuer">EKSIS 2026 — Ekspresi dan Inspirasi 2026</div>
         <h3>Infographic Competition Participant</h3>
-        <p>Participated in a national infographic competition organized by Universitas Brawijaya under the leadership of Aura Bunga Cintani, contributing to infographic design and educational visual storytelling.</p>
+        <p>National infographic competition participant. Contributed to infographic design and educational visual storytelling for impactful communication.</p>
         <div class="cert-date">📅 2026 · University Brawijaya</div>
       </div>
     </div>
@@ -709,20 +729,20 @@
       <h3>Send a message on WhatsApp</h3>
       <div class="form-group">
         <label>Name</label>
-        <input type="text" id="name" placeholder="Your name..." />
+        <input type="text" id="name" placeholder="e.g., Kevin" />
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea id="message" placeholder="Is there something you'd like to convey?"></textarea>
+        <textarea id="message" placeholder="Hi Farhan, I'd like to discuss a project opportunity..."></textarea>
       </div>
-      <button class="btn btn-primary" id="sendBtn" style="width:100%;justify-content:center;">Kirim Pesan →</button>
+      <button class="btn btn-primary" id="sendBtn" style="width:100%;justify-content:center;">Send Message →</button>
     </div>
   </div>
 </section>
 
 <footer>
   <div>© 2026 — Farhan Bintang Adrianto</div>
-  <div>Made with 💜</div>
+  <div>Software Developer</div>
 </footer>
 
 <script src="javascript/main.js"></script>
