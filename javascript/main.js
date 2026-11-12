@@ -12,8 +12,8 @@ document.addEventListener('mousemove', (e) => {
 // NAVBAR ACTIVE STATE
 // ========================
 const navbar = document.querySelector('nav');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('#hero, #about, #skills, #projects, #certs');
+const navLinks = document.querySelectorAll('.nav-links .nav-link');
+const sections = document.querySelectorAll('#hero, #about, #skills, #projects, #certs, #contact');
 
 function updateNavbarState() {
   let currentSection = 'home'; // default
@@ -34,6 +34,18 @@ function updateNavbarState() {
   } else {
     navbar.classList.remove('active');
   }
+
+  // Update active link (only desktop nav)
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const section = link.getAttribute('data-section');
+    
+    if (currentSection === 'hero' && section === 'home') {
+      link.classList.add('active');
+    } else if (currentSection === section) {
+      link.classList.add('active');
+    }
+  });
 }
 
 window.addEventListener('scroll', updateNavbarState);

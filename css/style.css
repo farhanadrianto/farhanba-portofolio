@@ -191,6 +191,14 @@ nav.active {
   width: 100%;
 }
 
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
 /* ========================
    THEME TOGGLE BUTTON
 ======================== */
@@ -434,6 +442,73 @@ h1 .highlight {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   animation: fadeUp 0.6s 0.5s ease both;
+}
+
+/* ========================
+   HERO LOGOS
+======================== */
+.hero-logos {
+  position: absolute;
+  right: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-sma {
+  animation-delay: 0s;
+}
+
+.logo-upn {
+  animation-delay: 0.5s;
+}
+
+.hero-logo:hover {
+  opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ========================
+   HERO LOGOS MOBILE
+======================== */
+.hero-logos-mobile {
+  display: none;
+}
+
+.hero-logo-mobile {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-sma-mobile {
+  animation-delay: 0s;
+}
+
+.logo-upn-mobile {
+  animation-delay: 0.5s;
 }
 
 .scroll-line {
@@ -1735,6 +1810,17 @@ footer {
   .hero-scroll {
     left: 1.5rem;
     bottom: 2rem;
+  }
+
+  .hero-logos {
+    display: none;
+  }
+
+  .hero-logos-mobile {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3.5rem;
   }
 
   .scroll-line {
