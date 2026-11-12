@@ -9,6 +9,37 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // ========================
+// NAVBAR ACTIVE STATE
+// ========================
+const navbar = document.querySelector('nav');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('#hero, #about, #skills, #projects, #certs');
+
+function updateNavbarState() {
+  let currentSection = 'home'; // default
+
+  // Check which section is in viewport
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    
+    if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  // Update navbar active state
+  if (currentSection === 'hero') {
+    navbar.classList.add('active');
+  } else {
+    navbar.classList.remove('active');
+  }
+}
+
+window.addEventListener('scroll', updateNavbarState);
+window.addEventListener('load', updateNavbarState);
+
+// ========================
 // SCROLL REVEAL
 // ========================
 const revealElements = document.querySelectorAll('.reveal');
@@ -124,27 +155,37 @@ function initSliders() {
 // ========================
 // MOBILE MENU
 // ========================
+// MOBILE MENU
+// ========================
 const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-const navItems = document.querySelectorAll('#navLinks a');
-const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileNavItems = document.querySelectorAll('.mobile-nav-links a');
 
 if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
   });
 }
 
-if (menuClose) {
-  menuClose.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-  });
-}
-
-navItems.forEach(item => {
+mobileNavItems.forEach(item => {
   item.addEventListener('click', () => {
-    navLinks.classList.remove('active');
+    mobileMenu.classList.remove('active');
   });
+});
+
+// Close menu ketika klik di luar
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.classList.remove('active');
+  }
+});
+
+// Close menu saat resize dari mobile ke desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 600) {
+    mobileMenu.classList.remove('active');
+  }
 });
 
 // ========================
