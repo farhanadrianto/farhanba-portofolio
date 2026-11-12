@@ -1977,8 +1977,8 @@ button:focus-visible,
   }
 }
 
-/* CV Download Button */
-.cv-download-btn {
+/* CV Button */
+.cv-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1994,36 +1994,49 @@ button:focus-visible,
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.25);
 }
 
-.cv-download-btn:hover {
+.cv-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 107, 0.35);
   background: var(--accent2);
 }
 
-.cv-download-btn svg {
+.cv-btn svg {
   width: 18px;
   height: 18px;
   transition: transform 0.3s ease;
 }
 
-.cv-download-btn:hover svg {
-  transform: translateY(2px);
-  animation: bounce 0.6s ease infinite;
+.cv-btn:hover svg {
+  transform: scale(1.1);
 }
 
-[data-theme="light"] .cv-download-btn {
+[data-theme="light"] .cv-btn {
   box-shadow: 0 4px 15px rgba(198, 122, 94, 0.25);
 }
 
-[data-theme="light"] .cv-download-btn:hover {
+[data-theme="light"] .cv-btn:hover {
   box-shadow: 0 6px 20px rgba(198, 122, 94, 0.35);
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+/* CV Buttons Container */
+.cv-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cv-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
   }
-  50% {
-    transform: translateY(2px);
+
+  .cv-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
