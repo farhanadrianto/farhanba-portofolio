@@ -13,7 +13,7 @@ document.addEventListener('mousemove', (e) => {
 // ========================
 const navbar = document.querySelector('nav');
 const navLinks = document.querySelectorAll('.nav-links .nav-link');
-const sections = document.querySelectorAll('#hero, #about, #skills, #projects, #certs, #contact');
+const sections = document.querySelectorAll('#hero, #about, #skills, #projects, #certs, #organization, #contact');
 
 function updateNavbarState() {
   let currentSection = 'home'; // default
